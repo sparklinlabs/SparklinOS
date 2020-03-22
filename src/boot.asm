@@ -95,7 +95,7 @@ end:
   hlt
 
 error:
-  mov si, errormsg
+  mov si, disk_error_msg
   call print
   jmp end
 
@@ -119,8 +119,7 @@ print_end:
   ret
 
 drive: dw 0
-msg: db "Bonjour le stream!", 0
-errormsg: db "Ca a pas marche lol", 0
+disk_error_msg: db "Failed to read from disk.", 0
 
 times 510-($-$$) db 0
 dw 0xaa55
